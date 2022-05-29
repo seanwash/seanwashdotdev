@@ -1,7 +1,12 @@
 <x-layout>
     <h1>Sean Washington</h1>
 
-    <p>Hey, I'm Sean, and for the past 11 years I've been enamored with transforming ideas into reality through software. The web has been my platform of choice, and I've used tools like HTML, CSS, TypeScript, Elixir, Ruby, PHP, and PostgreSQL to solve the various problems that have come my way.</p>
+    <p>Welcome! I'm a software developer based out of 🏝 Santa Cruz, CA. I've been building software since early 2012, with the bulk of my experience being on the web platform. I'm currently building tools to empower interior designers, both big at small, at
+        <a href="https://onsidedoor.com">SideDoor</a>.</p>
+
+    <p>Before SideDoor, I co-hosted the <a href="https://dnc.show">Does Not Compute</a> Podcast, built (the now-defunct)
+        <a href="https://designkollective.com">Design Kollective</a>, and was an Engineering Lead at
+        <a href="https://metalab.com">MetaLab</a>.</p>
 
     <p>Check out my <a href="https://seanwash.com">Changelog</a>, or find me on <a href="https://twitter.com/seanwashbot">Twitter</a> and
         <a href="https://github.com/seanwash">GitHub</a>.</p>
