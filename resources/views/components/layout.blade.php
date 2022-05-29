@@ -55,5 +55,9 @@
         </div>
 
         <script src="{{ mix('js/app.js') }}"></script>
+
+        @env('production')
+            <script src="https://cdn.usefathom.com/script.js" data-site="{{ env('FATHOM_SITE_ID') }}" defer></script>
+        @endenv
     </body>
 </html>
