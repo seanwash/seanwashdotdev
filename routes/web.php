@@ -25,3 +25,11 @@ Route::get('/bookmarks', function () {
     return view('bookmarks');
 })->name('bookmarks');
 
+Route::prefix('admin')
+    ->middleware(['auth.basic'])
+    ->group(function () {
+        Route::get('/', function () {
+            return view('admin.index');
+        });
+    });
+
