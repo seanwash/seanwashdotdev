@@ -56,8 +56,8 @@
 
         <script src="{{ mix('js/app.js') }}"></script>
 
-        @env('production')
+        @if(app()->environment('production'))
             <script src="https://cdn.usefathom.com/script.js" data-site="{{ env('FATHOM_SITE_ID') }}" defer></script>
-        @endenv
+        @endif
     </body>
 </html>
