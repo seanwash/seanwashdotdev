@@ -8,7 +8,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ $title }}</title>
+        @if(Route::is('home'))
+            <title>{{ $title }}</title>
+        @else
+            <title>{{ $title }} – Sean Washington</title>
+        @endif
 
         <meta name="description" content="{{ $description }}">
         <meta property="og:description" content="{{ $description }}">
@@ -57,7 +61,8 @@
         <script src="{{ mix('js/app.js') }}"></script>
 
         @if(app()->environment('production'))
-            <script src="https://cdn.usefathom.com/script.js" data-site="{{ config('services.fathom.site_id') }}" defer></script>
+            <script src="https://cdn.usefathom.com/script.js" data-site="{{ config('services.fathom.site_id') }}"
+                    defer></script>
         @endif
     </body>
 </html>
