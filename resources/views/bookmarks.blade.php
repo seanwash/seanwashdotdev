@@ -1,6 +1,16 @@
 @php
     $bookmarks = [
         [
+            'label' => 'Greg Schier',
+            'url' => 'https://schier.co',
+            'tags' => ['Website'],
+        ],
+        [
+            'label' => 'Paul Straw',
+            'url' => 'https://paulstraw.com',
+            'tags' => ['Website'],
+        ],
+        [
             'label' => 'How To Ask Questions The Smart Way',
             'url' => 'http://www.catb.org/esr/faqs/smart-questions.html',
             'tags' => ['Reading'],
@@ -18,12 +28,12 @@
         [
             'label' => 'Adam Wathan',
             'url' => 'https://adamwathan.me',
-            'tags' => ['Portfolio'],
+            'tags' => ['Website'],
         ],
         [
             'label' => 'Brian Lovin',
             'url' => 'https://brianlovin.com',
-            'tags' => ['Portfolio'],
+            'tags' => ['Website'],
         ],
         [
             'label' => 'Staff Eng Archetypes',
