@@ -1,3 +1,53 @@
+@php
+    $bookmarks = [
+        [
+            'label' => 'How To Ask Questions The Smart Way',
+            'url' => 'http://www.catb.org/esr/faqs/smart-questions.html',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'Improve how you architect webapps',
+            'url' => 'https://patterns.dev',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'How my website works - Brian Lovin',
+            'url' => 'https://brianlovin.com/writing/how-my-website-works',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'Adam Wathan',
+            'url' => 'https://adamwathan.me',
+            'tags' => ['Portfolio'],
+        ],
+        [
+            'label' => 'Brian Lovin',
+            'url' => 'https://brianlovin.com',
+            'tags' => ['Portfolio'],
+        ],
+        [
+            'label' => 'Staff Eng Archetypes',
+            'url' => 'https://leebyron.com/til/staff-eng-archetypes/',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'Why You Should Start a Blog Right Now',
+            'url' => 'https://guzey.com/personal/why-have-a-blog/',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'The unreasonable effectiveness of one-on-ones',
+            'url' => 'https://www.benkuhn.net/11',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'Flow.rest',
+            'url' => 'https://flow.rest',
+            'tags' => ['Website'],
+        ],
+    ];
+@endphp
+
 <x-layout
     title="Bookmarks"
     description="A collection of websites, articles, and other resources that I find useful."
@@ -5,37 +55,24 @@
     <h1>Bookmarks</h1>
 
     <ul>
-        <li><a href="http://www.catb.org/esr/faqs/smart-questions.html" target="_blank" rel="noopener noreferrer">How To
-                Ask Questions The Smart Way</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://www.patterns.dev/" target="_blank" rel="noopener noreferrer">Improve how you architect
-                webapps</a> <span class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://brianlovin.com/writing/how-my-website-works" target="_blank" rel="noopener noreferrer">How
-                My Website Works</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://adamwathan.me/" target="_blank" rel="noopener noreferrer">Adam Wathan</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Portfolio</span>
-        </li>
-        <li><a href="https://brianlovin.com/" target="_blank" rel="noopener noreferrer">Brian Lovin</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Portfolio</span>
-        </li>
-        <li><a href="https://leebyron.com/til/staff-eng-archetypes/" target="_blank" rel="noopener noreferrer">Staff Eng
-                Archetypes</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://guzey.com/personal/why-have-a-blog/" target="_blank" rel="noopener noreferrer">Why You
-                Should Start a Blog Right Now</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://www.benkuhn.net/11/" target="_blank" rel="noopener noreferrer">The unreasonable
-                effectiveness of one-on-ones</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Reading</span>
-        </li>
-        <li><a href="https://flow.rest" target="_blank" rel="noopener noreferrer">Flow.rest</a> <span
-                class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Website</span>
-        </li>
+        @foreach($bookmarks as $bookmark)
+            <li>
+                <a
+                    href="{{ $bookmark['url'] }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {{ $bookmark['label'] }}
+                </a>
+
+                @foreach($bookmark['tags'] as $tag)
+                    <span
+                        class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800"
+                    >
+                    {{ $tag }}
+                </span>
+                @endforeach
+            </li>
+        @endforeach
     </ul>
 </x-layout>
