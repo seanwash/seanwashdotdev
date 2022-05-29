@@ -6,7 +6,7 @@ module.exports = {
     ],
     theme: {
         fontFamily: {
-            sans: ['Nunito', 'sans-serif'],
+            sans: ['IBM Plex Sans', 'sans-serif'],
         },
         extend: {},
     },
