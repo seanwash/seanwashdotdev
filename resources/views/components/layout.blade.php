@@ -17,13 +17,36 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="dark:bg-black dark:text-white">
         <nav class="p-8 pb-0 space-x-2">
             <a
-                class="text-gray-500"
+                @class([
+                    "text-gray-500",
+                    "font-bold text-black dark:text-white" => Route::is('home')
+                ])
                 href="{{ route('home') }}"
             >
                 Home
+            </a>
+
+            <a
+                @class([
+                    "text-gray-500",
+                    "font-bold text-black dark:text-white" => Route::is('uses')
+                ])
+                href="{{ route('uses') }}"
+            >
+                Uses
+            </a>
+
+            <a
+                @class([
+                    "text-gray-500",
+                    "font-bold text-black dark:text-white" => Route::is('bookmarks')
+                ])
+                href="{{ route('bookmarks') }}"
+            >
+                Bookmarks
             </a>
         </nav>
 
