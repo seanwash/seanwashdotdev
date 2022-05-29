@@ -1,6 +1,16 @@
 @php
     $bookmarks = [
         [
+            'label' => 'Thinking in mental models - Julian Shapiro',
+            'url' => 'https://www.julian.com/blog/mental-model-examples',
+            'tags' => ['Reading'],
+        ],
+        [
+            'label' => 'How to become an expert - Julian Shapiro',
+            'url' => 'https://www.julian.com/blog/craftspeople',
+            'tags' => ['Reading'],
+        ],
+        [
             'label' => 'Greg Schier',
             'url' => 'https://schier.co',
             'tags' => ['Website'],
