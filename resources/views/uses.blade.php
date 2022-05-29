@@ -12,12 +12,12 @@
             <p>1Password is literally the first thing I install on every new device.</p>
         </li>
         <li>
-            <div><a href="https://ianyh.com/amethyst/" target="_blank" rel="noopener noreferrer">Amethyst</a> <span
-                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Indie</span><span
-                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Open Source</span>
+            <div><a href="https://www.raycast.com/" target="_blank" rel="noopener noreferrer">Raycast</a> <span
+                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Free</span>
             </div>
-            <p>Amethyst is a tiling window manager for MacOS. It took me a while to get used it, but I can never go back
-                to managing free floating windows or having to resize and position windows one by one.</p>
+            <p>Raycast is a blazing fast, totally extendable launcher. It lets you complete tasks, calculate, share
+                common links, and much more. I use it for everything from window management and controlling Apple Music
+                to updating my Slack status.</p>
         </li>
         <li>
             <div><a href="https://folivora.ai" target="_blank" rel="noopener noreferrer">Better Touch Tool</a> <span
@@ -38,25 +38,11 @@
                 everything I need for sharing what I'm working on with my team.</p>
         </li>
         <li>
-            <div><a href="https://www.gitify.io" target="_blank" rel="noopener noreferrer">Gitify</a> <span
-                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Open Source</span><span
-                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Indie</span>
-            </div>
-            <p>Gitify is a menu bar app for MacOS that aggregates your GitHub notifications.</p>
-        </li>
-        <li>
             <div><a href="https://netnewswire.com/" target="_blank" rel="noopener noreferrer">NetNewsWire</a> <span
                     class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Indie</span><span
                     class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Open Source</span>
             </div>
             <p>My go-to RSS reader for MacOS and iOS.</p>
-        </li>
-        <li>
-            <div><a href="https://www.raycast.com/" target="_blank" rel="noopener noreferrer">Raycast</a> <span
-                    class="inline-block ml-1 text-xs py-1 px-2 rounded-full bg-gray-100 dark:bg-gray-800">Free</span>
-            </div>
-            <p>Raycast is a blazingly fast, totally extendable launcher. It lets you complete tasks, calculate, share
-                common links, and much more.</p>
         </li>
         <li>
             <div><a href="https://rogueamoeba.com/soundsource/" target="_blank"
