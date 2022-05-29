@@ -53,5 +53,7 @@
         <div class="p-8 prose dark:prose-invert">
             {{ $slot }}
         </div>
+
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
