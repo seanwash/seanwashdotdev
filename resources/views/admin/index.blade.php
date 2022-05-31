@@ -8,7 +8,7 @@
                     {{ $matter_item->name }}
                 @endif
 
-                <x-tag>{{ $matter_item->type->value }}</x-tag>
+                <x-tag>{{ $matter_item->type }}</x-tag>
             </li>
         @endforeach
     </ul>
