@@ -19,6 +19,28 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body class="dark:bg-black dark:text-white">
+        <nav class="p-8 pb-0 space-x-2 flex items-center justify-between">
+            <a
+                @class([
+                    "text-gray-500",
+                    "font-bold text-black dark:text-white" => Route::is('admin.home')
+                ])
+                href="{{ route('admin.home') }}"
+            >
+                Admin Home
+            </a>
+
+            <a
+                @class([
+                    "text-gray-500",
+                    "font-bold text-black dark:text-white" => Route::is('home')
+                ])
+                href="{{ route('home') }}"
+            >
+                Back to site
+            </a>
+        </nav>
+
         <div class="p-8 prose dark:prose-invert">
             {{ $slot }}
         </div>
