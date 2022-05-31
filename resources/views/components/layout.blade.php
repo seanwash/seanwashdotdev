@@ -73,7 +73,7 @@
             {{ $slot }}
         </div>
 
-        @if(app()->environment('production'))
+        @if(app()->environment('production') && ! Auth::check())
             <script
                 src="https://cdn.usefathom.com/script.js"
                 data-site="{{ config('services.fathom.site_id') }}"
