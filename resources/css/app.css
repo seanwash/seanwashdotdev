@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+label {
+    display: block;
+}
+
+input,
+textarea,
+select {
+    @apply py-2 px-4 rounded w-full appearance-none;
+    @apply dark:bg-gray-800 border border-gray-300 dark:border-gray-900 appearance-none;
+}
+
+button {
+    @apply py-2 px-4 rounded appearance-none;
+    @apply text-white !important;
+    @apply bg-gray-600 !important;
+}

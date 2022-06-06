@@ -20,15 +20,27 @@
     </head>
     <body class="dark:bg-black dark:text-white">
         <nav class="p-8 pb-0 space-x-2 flex items-center justify-between">
-            <a
-                @class([
-                    "text-gray-500",
-                    "font-bold text-black dark:text-white" => Route::is('admin.home')
-                ])
-                href="{{ route('admin.home') }}"
-            >
-                Admin Home
-            </a>
+            <div class="space-x-2">
+                <a
+                    @class([
+                        "text-gray-500",
+                        "font-bold text-black dark:text-white" => Route::is('admin.home')
+                    ])
+                    href="{{ route('admin.home') }}"
+                >
+                    Admin
+                </a>
+
+                <a
+                    @class([
+                        "text-gray-500",
+                        "font-bold text-black dark:text-white" => Route::is('admin.matter.create')
+                    ])
+                    href="{{ route('admin.matter.create') }}"
+                >
+                    Add Matter
+                </a>
+            </div>
 
             <a
                 @class([
@@ -41,7 +53,7 @@
             </a>
         </nav>
 
-        <div class="p-8 prose dark:prose-invert">
+        <div class="p-8 max-w-full prose dark:prose-invert">
             {{ $slot }}
         </div>
     </body>

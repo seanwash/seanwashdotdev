@@ -12,7 +12,16 @@ class Matter extends Model
     use HasFactory;
 
     protected $casts = [
-        'public_at' => 'timestamp',
+        'public_at' => 'datetime',
+    ];
+
+    protected $fillable = [
+        'type',
+        'name',
+        'slug',
+        'external_url',
+        'content',
+        'public_at',
     ];
 
     public function tags(): BelongsToMany

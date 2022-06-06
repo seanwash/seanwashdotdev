@@ -12,6 +12,15 @@ class MatterType
     {
     }
 
+    public static function values(): array
+    {
+        return [
+            self::POST,
+            self::BOOKMARK,
+            self::TOOL,
+        ];
+    }
+
     public function __toString(): string
     {
         return $this->type;
