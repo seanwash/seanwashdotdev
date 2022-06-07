@@ -8,7 +8,7 @@
         @foreach($bookmarks as $bookmark)
             <li>
                 <a
-                    href="{{ $bookmark->url }}"
+                    href="{{ $bookmark->external_url }}"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
