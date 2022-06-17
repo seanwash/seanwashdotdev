@@ -72,7 +72,7 @@ Route::prefix('admin')
             return redirect()->to('admin');
         })->name('matter.store');
 
-        Route::get('/matter/{matter}', function (Matter $matter) {
+        Route::get('/matter/{matter}/edit', function (Matter $matter) {
             $matter->load('tags');
 
             return view('admin.matter.edit', ['matter' => $matter, 'tags' => Tag::all()]);
