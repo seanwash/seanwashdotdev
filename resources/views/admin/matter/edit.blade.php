@@ -70,10 +70,11 @@
 
         <div>
             <label for="public_at">Public At</label>
-            <input type="datetime-local"
-                   name="public_at"
-                   id="public_at"
-                   value="{{ old('public_at', $matter->public_at) }}"
+            <input
+                type="datetime-local"
+                name="public_at"
+                id="public_at"
+                value="{{ old('public_at', $matter->public_at->toDateTimeLocalString()) }}"
             >
 
             @error('public_at')
