@@ -53,6 +53,22 @@
         </div>
 
         <div>
+            <label for="tags">Tags</label>
+            <select name="tags[]" id="tags" multiple>
+                @foreach($tags as $tag)
+                    <option
+                        value="{{ $tag->id }}"
+                        @selected($matter->tags->contains($tag))
+                    >{{ $tag->name }}</option>
+                @endforeach
+            </select>
+
+            @error('tags')
+            <div class="text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
             <label for="public_at">Public At</label>
             <input type="datetime-local"
                    name="public_at"

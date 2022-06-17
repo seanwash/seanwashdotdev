@@ -3,9 +3,10 @@
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use App\Models\Matter;
 use App\Models\MatterType;
-use Illuminate\Support\Str;
+use App\Models\Tag;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,41 +50,49 @@ Route::prefix('admin')
         })->name('home');
 
         Route::get('/matter/create', function () {
-            return view('admin.matter.create', []);
+            return view('admin.matter.create', ['tags' => Tag::all()]);
         })->name('matter.create');
 
         Route::post('/matter', function (Request $request) {
+            // TODO: Replace with $request->getters.
             $validated = $request->validate([
                 'type' => ['required', "in:".implode(",", MatterType::values())],
-                'name' => 'required',
+                'name' => ['required'],
                 'external_url' => ['nullable', 'url'],
-                'content' => 'nullable',
-                'public_at' => 'nullable|date',
+                'content' => ['nullable'],
+                'public_at' => ['nullable', 'date'],
+                'tags' => ['nullable', 'array']
             ]);
 
             $validated['slug'] = Str::slug($validated['name']);
 
-            Matter::create($validated);
+            $matter = Matter::create($validated);
+            $matter->tags()->sync($validated['tags']);
 
             return redirect()->to('admin');
         })->name('matter.store');
 
         Route::get('/matter/{matter}', function (Matter $matter) {
-            return view('admin.matter.edit', ['matter' => $matter]);
+            $matter->load('tags');
+
+            return view('admin.matter.edit', ['matter' => $matter, 'tags' => Tag::all()]);
         })->name('matter.edit');
 
         Route::put('matter/{matter}', function (Request $request, Matter $matter) {
+            // TODO: Replace with $request->getters.
             $validated = $request->validate([
                 'type' => ['required', "in:".implode(",", MatterType::values())],
-                'name' => 'required',
+                'name' => ['required'],
                 'external_url' => ['nullable', 'url'],
-                'content' => 'nullable',
-                'public_at' => 'nullable|date',
+                'content' => ['nullable'],
+                'public_at' => ['nullable', 'date'],
+                'tags' => ['nullable', 'array']
             ]);
 
             $validated['slug'] = Str::slug($validated['name']);
 
             $matter->update($validated);
+            $matter->tags()->sync($validated['tags']);
 
             return redirect()->to('admin');
         })->name('matter.update');
