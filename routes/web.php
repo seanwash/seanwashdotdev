@@ -41,12 +41,15 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', function (Request $request) {
             $matter = Matter::latest()
+                ->when($request->input('keyword'), function (Builder $query) use ($request) {
+                    return $query->where('name', 'like', "%{$request->input('keyword')}%");
+                })
                 ->when($request->input('type'), function (Builder $query) use ($request) {
-                    return $query->where('type', '=', $request->input('type'));
+                    return $query->where('type', $request->input('type'));
                 })
                 ->get();
 
-            return view('admin.index', ['matter' => $matter]);
+            return view('admin.index', ['matter' => $matter, 'keyword' => $request->query('keyword')]);
         })->name('home');
 
         Route::get('/matter/create', function () {

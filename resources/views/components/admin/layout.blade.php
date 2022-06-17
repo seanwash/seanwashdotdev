@@ -16,9 +16,9 @@
         <x-favicon/>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
               rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
-    <body class="dark:bg-black dark:text-white">
+    <body class="dark:bg-black dark:text-white" {{ $attributes }}>
         <nav class="p-8 pb-0 space-x-2 flex items-center justify-between">
             <div class="space-x-2">
                 <a
@@ -56,5 +56,7 @@
         <div class="p-8 max-w-full prose dark:prose-invert">
             {{ $slot }}
         </div>
+
+        <script defer src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

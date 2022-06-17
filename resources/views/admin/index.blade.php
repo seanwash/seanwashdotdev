@@ -1,9 +1,31 @@
 <x-admin.layout title="Admin">
 
-    <form action="{{ route('admin.home') }}" method="GET" class="flex items-end space-x-2">
-        <div>
-            <label for="type">Type</label>
-            <select name="type" id="type">
+    <form
+        x-data
+        x-ref="filterForm"
+        action="{{ route('admin.home') }}"
+        method="GET"
+        class="flex items-end space-x-2"
+    >
+        <div class="w-full">
+            <label for="keyword">Search</label>
+            <input
+                x-ref="keywordInput"
+                name="keyword"
+                id="keyword"
+                type="search"
+                @keyup.slash.document="$refs.keywordInput.focus()"
+                @change="$refs.filterForm.submit()"
+                value="{{ $keyword }}"
+            >
+        </div>
+
+        <div class="min-w-[10rem]">
+            <x-form.select
+                label="Type"
+                name="type"
+                @change="$refs.filterForm.submit()"
+            >
                 <option selected value="">
                     All Types
                 </option>
@@ -13,7 +35,7 @@
                         @selected(request()->query('type') === $value)
                     >{{ Str::ucFirst($value) }}</option>
                 @endforeach
-            </select>
+            </x-form.select>
         </div>
 
         <div class="space-x-2">
