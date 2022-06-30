@@ -16,7 +16,8 @@
         <x-favicon/>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
               rel="stylesheet">
-        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+        @vite('resources/css/app.css')
     </head>
     <body class="dark:bg-black dark:text-white" {{ $attributes }}>
         <nav class="p-8 pb-0 space-x-2 flex items-center justify-between">
@@ -57,6 +58,6 @@
             {{ $slot }}
         </div>
 
-        <script defer src="{{ mix('/js/app.js') }}"></script>
+        @vite('resources/js/app.js')
     </body>
 </html>

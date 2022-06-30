@@ -20,7 +20,8 @@
         <x-favicon/>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
               rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        @vite('resources/css/app.css')
     </head>
     <body class="dark:bg-black dark:text-white">
         <nav class="p-8 pb-0 flex items-center justify-between">
@@ -72,6 +73,8 @@
         <div class="p-8 prose dark:prose-invert">
             {{ $slot }}
         </div>
+
+        @vite('resources/js/app.js')
 
         @if(app()->environment('production') && ! Auth::check())
             <script
