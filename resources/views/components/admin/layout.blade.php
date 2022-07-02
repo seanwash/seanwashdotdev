@@ -17,7 +17,7 @@
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap"
               rel="stylesheet">
 
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="dark:bg-black dark:text-white" {{ $attributes }}>
         <nav class="p-8 pb-0 space-x-2 flex items-center justify-between">
@@ -64,7 +64,5 @@
         <div class="p-8 max-w-full prose dark:prose-invert">
             {{ $slot }}
         </div>
-
-        @vite('resources/js/app.js')
     </body>
 </html>
