@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use App\Models\Matter;
@@ -23,6 +24,44 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/login', function () {
+    if (Auth::check()) {
+        return redirect()->route('home');
+    }
+
+    return view('login');
+})->name('login');
+
+Route::post('/login', function (Request $request) {
+    $credentials = $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required']
+    ]);
+
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+
+        return redirect()->intended(
+            route('admin.home')
+        );
+    }
+
+    return back()
+        ->withErrors([
+            'email' => 'The provided email or password are invalid.'
+        ])
+        ->onlyInput('email');
+})->name('login.store');
+
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect()->route('home');
+})->middleware('auth')->name('logout');
+
 Route::get('/uses', function () {
     return view('uses', [
         'tools' => Matter::whereType(MatterType::TOOL)->with('tags')->get()
@@ -37,7 +76,7 @@ Route::get('/bookmarks', function () {
 
 Route::prefix('admin')
     ->name('admin.')
-    ->middleware(['auth.basic'])
+    ->middleware(['auth'])
     ->group(function () {
         Route::get('/', function (Request $request) {
             $matter = Matter::latest()

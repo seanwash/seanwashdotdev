@@ -43,15 +43,22 @@
                 </a>
             </div>
 
-            <a
-                @class([
-                    "text-gray-500",
-                    "font-bold text-black dark:text-white" => Route::is('home')
-                ])
-                href="{{ route('home') }}"
-            >
-                Back to site
-            </a>
+            <div class="flex items-center space-x-2">
+                <a
+                    @class([
+                        "text-gray-500",
+                        "font-bold text-black dark:text-white" => Route::is('home')
+                    ])
+                    href="{{ route('home') }}"
+                >
+                    Back to site
+                </a>
+
+                <form class="mb-0" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="button-xs" type="submit">Logout</button>
+                </form>
+            </div>
         </nav>
 
         <div class="p-8 max-w-full prose dark:prose-invert">

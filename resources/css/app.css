@@ -18,3 +18,12 @@ button {
     @apply text-white !important;
     @apply bg-gray-600 !important;
 }
+
+button.button-sm {
+    @apply text-sm !important;
+}
+
+button.button-xs {
+    @apply py-1 px-2;
+    @apply text-xs !important;
+}
