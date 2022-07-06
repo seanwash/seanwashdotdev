@@ -44,15 +44,6 @@
         </div>
 
         <div>
-            <label for="content">Content</label>
-            <textarea name="content" id="content">{{ old('content', $matter->content) }}</textarea>
-
-            @error('content')
-            <div class="text-red-500">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div>
             <label for="tags">Tags</label>
             <select name="tags[]" id="tags" multiple>
                 @foreach($tags as $tag)
@@ -81,6 +72,8 @@
             <div class="text-red-500">{{ $message }}</div>
             @enderror
         </div>
+
+        <x-form.editor :value="$matter->content"/>
 
         <button type="submit">Save</button>
     </form>
