@@ -53,7 +53,7 @@
         <div>
             <label for="public_at">Public At</label>
             <input type="datetime-local" name="public_at" id="public_at"
-                   value="{{ old('public_at') }}">
+                   value="{{ old('public_at', now()->toDateTimeLocalString()) }}">
 
             @error('public_at')
             <div class="text-red-500">{{ $message }}</div>

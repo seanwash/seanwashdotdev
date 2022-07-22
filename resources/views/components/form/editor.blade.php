@@ -3,6 +3,8 @@
 ])
 
 <div class="space-y-2" x-data="setupEditor('{!! $value !!}')" x-init="() => init($refs.element)">
+    <label for="content">Content</label>
+
     <div class="menu">
         <button
             type="button"
