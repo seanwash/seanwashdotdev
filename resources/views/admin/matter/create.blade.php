@@ -1,6 +1,35 @@
 <x-admin.layout title="Add Matter">
+    <script>
+        document.addEventListener("alpine:init", () => {
+            Alpine.data("metadata", () => ({
+                name: "{{ old('name', '') }}",
+                processing: false,
+                externalUrl: "{{ old('external_url', '') }}",
 
-    <form action="{{ route('admin.matter.store') }}" method="POST" class="space-y-4">
+                getExternalUrlMetadata: async function () {
+                    if (!this.externalUrl) return
+
+                    try {
+                        this.processing = true
+                        const metadata = await (await (fetch(`{{ route('admin.matter.metadata') }}?url=${this.externalUrl}`))).json()
+                        this.name = metadata["title"]
+                    } catch (err) {
+                        alert("Could not fetch metadata")
+                        console.error(err)
+                    } finally {
+                        this.processing = false
+                    }
+                },
+            }))
+        })
+    </script>
+
+    <form
+        action="{{ route('admin.matter.store') }}"
+        method="POST"
+        class="space-y-4"
+        x-data="metadata"
+    >
         @csrf
 
         <div>
@@ -18,17 +47,35 @@
 
         <div>
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="{{ old('name') }}">
+            <input
+                type="text"
+                name="name"
+                id="name"
+                x-model="name"
+                value="{{ old('name') }}"
+                :disabled="processing"
+            >
 
             @error('name')
+            <div class="text-red-500">{{ $message }}</div>
+            @enderror
+
+            @error('slug')
             <div class="text-red-500">{{ $message }}</div>
             @enderror
         </div>
 
         <div>
             <label for="external_url">URL</label>
-            <input type="url" name="external_url" id="external_url"
-                   value="{{ old('external_url') }}">
+            <input
+                type="url"
+                name="external_url"
+                id="external_url"
+                @change="getExternalUrlMetadata"
+                x-model="externalUrl"
+                value="{{ old('external_url') }}"
+                :disabled="processing"
+            >
 
             @error('external_url')
             <div class="text-red-500">{{ $message }}</div>
@@ -62,7 +109,6 @@
 
         <x-form.editor :value="''"/>
 
-        <button type="submit">Create</button>
+        <button type="submit" :disabled="processing">Create</button>
     </form>
-
 </x-admin.layout>
